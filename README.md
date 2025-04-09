@@ -1,7 +1,7 @@
 Как запустить
-0. создать папку и скачать туда репозиторий
-1. Скачать python
-2. скачать через cmd flask (cd в папку репозитория; pip install flask)
-3. установить зависимости (так же через cmd pip install flask requests)
-4. запустить сервер (так же через cmd python server.py)
-5. перейти на http://localhost:5000/ 
+1. создать папку и скачать туда репозиторий
+2. Скачать python
+3. скачать через cmd flask (cd в папку репозитория; pip install flask)
+4. установить зависимости (так же через cmd pip install flask requests)
+5. запустить сервер (так же через cmd python server.py)
+6. перейти на http://localhost:5000/ 
