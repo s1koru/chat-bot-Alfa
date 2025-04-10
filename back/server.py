@@ -36,7 +36,7 @@ def get_access_token():
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
         'RqUID': rq_uid,
-        'Authorization': 'Basic YjU0MDhiMjEtOWVhMC00OGVhLTgzZWEtMWI0ZjljMjg3Yzk0OjVlMTE1ZDdkLTNlYTItNGYzNS05ZjEzLWI1MGJlMDNlYjcwYw=='
+        'Authorization': 'Basic YjU0MDhiMjEtOWVhMC00OGVhLTgzZWEtMWI0ZjljMjg3Yzk0OjZlYzc1MzQ4LTFlMDQtNDA4OC04YTU5LWE4ODM2Nzc5Zjc1Yg=='
     }
 
     try:
