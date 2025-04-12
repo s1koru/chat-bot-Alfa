@@ -1,117 +1,208 @@
 /* Основные стили страницы */
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Контейнер для выравнивания элементов */
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Стили заголовков */
+.header {
+  color: #d40824;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-out;
+}
+.subheader {
+  color: #d40824;
+  margin: 20px 0 10px;
+}
+
+/* Стили для кнопок */
+.option-btn {
+  padding: 15px 25px;
+  background-color: #d40824;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, border 0.3s;
+}
+
+.option-btn:hover {
+  transform: scale(1.1);
+}
+
+.option-btn.selected {
+  background-color: #fff;
+  color: #d40824;
+  border: 1px solid #d40824;
+}
+
+.options-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.age-group, .income-group {
+  width: 45%;
+}
+
+/* Кнопка продолжения */
+.continue-btn {
+  padding: 15px 30px;
+  background-color: #d40824;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.continue-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Кнопка возврата */
+.return-btn {
+  padding: 10px 20px;
+  background-color: #d40824;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.return-btn:hover {
+  transform: scale(1.05);
+  background-color: #b0061f;
+}
+
+/* Стили окна чата */
+.chat-window {
+  border: 2px solid #d40824;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fff;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Область сообщений */
+.chat-messages {
+  height: 300px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  text-align: left;
+  background: #fafafa;
+}
+
+/* Область ввода */
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chatInput {
+  width: calc(100% - 120px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#sendBtn {
+  padding: 10px 20px;
+  background-color: #d40824;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#sendBtn:hover {
+  background-color: #b0061f;
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  /* Контейнер для выравнивания элементов */
-  .container {
-    width: 90%;
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Стили заголовка */
-  .header {
-    color: #d40824; /* характерный синий оттенок Alfa Bank */
-    margin-bottom: 20px;
-    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  /* Блок с кнопками выбора возраста */
-  .age-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+  to {
+    opacity: 1;
   }
-  
-  /* Кнопки выбора возраста */
-  .age-btn {
-    padding: 15px 25px;
-    background-color: #d40824;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  
-  .age-btn:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Стили для окна чата */
-  .chat-window {
-    border: 2px solid #d40824;
-    border-radius: 10px;
-    padding: 20px;
-    background: #fff;
-    animation: fadeIn 1s ease-out;
-  }
-  
-  /* Область для сообщений */
-  .chat-messages {
-    height: 300px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
-    overflow-y: auto;
-    text-align: left;
-    background: #fafafa;
-  }
-  
-  /* Стили для области ввода сообщения */
-  .chat-input-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  #chatInput {
-    width: calc(100% - 120px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  #sendBtn {
-    padding: 10px 20px;
-    background-color: #d40824;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  #sendBtn:hover {
-    background-color: #d40824;
-  }
-  
-  /* Анимации */
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
+}
+
+/* Стили сообщений */
+.chat-message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+/* Стили аватарок */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Стили для контейнера текста сообщения */
+.message-content {
+  max-width: 70%;
+  background: #e8e8e8;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Стили для имени отправителя */
+.sender-name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Стили индикатора печати */
+.typing-indicator .message-content {
+  font-style: italic;
+  color: #888;
+}
