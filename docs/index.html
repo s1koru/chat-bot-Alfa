@@ -7,41 +7,66 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Экран выбора возраста и дохода -->
-  <div id="selectionPage" class="container">
-    <h1 class="header">Выберите ваш возраст и доход</h1>
-    <div class="options-group">
-      <div class="age-group">
-        <h2 class="subheader">Возраст</h2>
-        <div class="options">
-          <button class="option-btn" data-age="18-24">18 - 24</button>
-          <button class="option-btn" data-age="25-34">25 - 34</button>
-          <button class="option-btn" data-age="35-44">35 - 44</button>
-          <button class="option-btn" data-age="45-54">45 - 54</button>
-          <button class="option-btn" data-age="55+">55+</button>
-        </div>
-      </div>
-      <div class="income-group">
-        <h2 class="subheader">Доход</h2>
-        <div class="options">
-          <button class="option-btn" data-income="До 100к">До 100к</button>
-          <button class="option-btn" data-income="Свыше 100к">Свыше 100к</button>
-          <button class="option-btn" data-income="Премиум клиент">Премиум клиент</button>
-          <button class="option-btn" data-income="Alfa only">Alfa only</button>
-        </div>
+  <img class="bg-photo" src="img/фон.png" alt="Фоновое изображение">
+  
+  <!-- Логотип -->
+  <div class="top-left-logo">
+    <img src="img/logo.png" alt="Логотип">
+  </div>
+  
+  <!-- Заголовочный блок (виден на первых двух экранах) -->
+  <div class="chatbot-header">
+    <div class="chatbot-title">Чат-бот</div>
+    <div class="chatbot-subtitle">который решит все ваши вопросы</div>
+  </div>
+  
+  <!-- Экран выбора возраста -->
+  <div id="selectionWrapper" class="selection-wrapper">
+    <div id="ageSelection" class="age-container">
+      <div class="age-container-heading">Подскажите свой возраст</div>
+      <div class="age-options">
+        <button class="age-btn option-btn" data-age="14-18">14 - 18</button>
+        <button class="age-btn option-btn" data-age="18-24">18 - 24</button>
+        <button class="age-btn option-btn" data-age="25-34">25 - 34</button>
+        <button class="age-btn option-btn" data-age="35-44">35 - 44</button>
+        <button class="age-btn option-btn" data-age="45-54">45 - 54</button>
+        <button class="age-btn option-btn" data-age="55+">55+</button>
       </div>
     </div>
-    <button id="continueBtn" class="continue-btn" disabled>Перейти к диалогу</button>
+    <div class="continue-container">
+      <button id="toIncomeBtn" class="continue-btn" disabled>Далее</button>
+    </div>
   </div>
-
-  <!-- Чат-бот -->
+  
+  <!-- Экран выбора дохода -->
+  <div id="incomeWrapper" class="selection-wrapper" style="display: none;">
+    <div id="incomeSelection" class="age-container">
+      <div class="age-container-heading">Выберите ваш уровень дохода</div>
+      <div class="age-options income-grid">
+        <button class="age-btn option-btn" data-income="До 100к">До 100к</button>
+        <button class="age-btn option-btn" data-income="Свыше 100к">Свыше 100к</button>
+        <button class="age-btn option-btn" data-income="Премиум клиент">Премиум клиент</button>
+        <button class="age-btn option-btn" data-income="Alfa only">Alfa only</button>
+      </div>
+    </div>
+    <div class="continue-container">
+      <button id="toWelcomeBtn" class="continue-btn" disabled>Далее</button>
+    </div>
+  </div>
+  
+  <!-- Приветственный экран -->
+  <div id="welcomeScreen" class="container" style="display: none;">
+    <h1 id="welcomeHeader" class="header" style="font-size: 60px; display: none;"></h1>
+    <button id="toChatBtn" class="continue-btn">Перейти к диалогу</button>
+  </div>
+  
+  <!-- Экран чата -->
   <div id="chatBot" class="container" style="display: none;">
-    <h1 class="header">Добро пожаловать в Альфа чат-бот</h1>
-    <!-- Кнопка возврата к выбору -->
+    <h1 class="header">Альфа чат-бот</h1>
     <button id="returnBtn" class="return-btn">Вернуться к выбору</button>
     <div class="chat-window">
       <div class="chat-messages">
-        <!-- Сообщения чата будут появляться здесь -->
+        <!-- Сообщения чата появятся здесь -->
       </div>
       <div class="chat-input-area">
         <input type="text" id="chatInput" placeholder="Напишите сообщение...">
@@ -49,7 +74,7 @@
       </div>
     </div>
   </div>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
