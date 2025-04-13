@@ -269,21 +269,19 @@ function handleReturn() {
 
   // Маппинги
   const personaMapping = {
-    "14-18": "Антон",
-    "18-24": "Мария",
-    "25-34": "Олег",
-    "35-44": "Наталья",
-    "45-54": "Елена",
-    "55+": "Елена"
+    "14-17": "Вика",
+    "18-22": "Аня",
+    "23-28": "Индира",
+    "29-36": "Надежда",
+    "37+": "Роман"
   };
 
   const avatarMapping = {
-    "14-18": "avatars/anton.png",
-    "18-24": "avatars/maria.png",
-    "25-34": "avatars/oleg.png",
-    "35-44": "avatars/natalia.png",
-    "45-54": "avatars/elena.png",
-    "55+": "avatars/elena.png"
+    "14-17": "avatars/vika.png",
+    "18-22": "avatars/anya.png",
+    "23-28": "avatars/oleg.png",
+    "29-36": "avatars/nadezhda.png",
+    "37+": "avatars/roman.png"
   };
 
   // Анимация точек
