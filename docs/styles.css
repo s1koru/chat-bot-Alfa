@@ -618,7 +618,22 @@ body {
     transform: scale(1.5);
 
   }
-
+  #welcomeScreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #incomeWrapper .option-btn[data-income="Премиум клиент"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+  
+  .age-container-heading {
+    margin-bottom: 20px;
+    }
 }
 
 
