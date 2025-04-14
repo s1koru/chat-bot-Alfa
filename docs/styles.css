@@ -494,20 +494,6 @@ body {
   margin: 0 0 20px 0;  /* Можно добавить нижний отступ для отделения от кнопки */
 }
 
-.site-notice {
-  position: fixed;       /* Закрепляем footer внизу окна */
-            /* Прикрепляем к нижней границе */
-  left: 0;
-  width: 100%;           /* Растягиваем на всю ширину страницы */
-  background-color: #000; /* Фон подстраивается под общую тему */
-  color: #F9E5E5;
-  text-align: center;
-  padding: 10px 20px;
-  border-top: 0px solid #EF3124;
-  font-size: 12px;       /* Уменьшенный шрифт */
-  z-index: 10;           /* Поверх прочего контента */
-}
-
 
 /* Адаптивные стили для экранов меньше 600px */
 @media only screen and (max-width: 600px) {
