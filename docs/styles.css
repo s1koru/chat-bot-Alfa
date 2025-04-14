@@ -610,8 +610,9 @@ body {
   
   /* Стиль для приветственной фразы "Привет, меня зовут Надежда. Сегодня я отвечу на все твои вопросы!" */
   #welcomeHeader {
-    font-size: 42px; /* уменьшенный размер шрифта */
+    font-size: 25px; /* уменьшенный размер шрифта */
     margin-top: 5px; /* уменьшенное расстояние сверху */
+
   }
 
   .bg-photo {
@@ -621,8 +622,8 @@ body {
   #welcomeScreen {
     position: fixed;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 10%;
+    transform: translate(0, -50%);
   }
   #incomeWrapper .option-btn[data-income="Премиум клиент"] {
     display: flex;
