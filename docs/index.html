@@ -55,15 +55,16 @@
   
   <!-- Экран чата -->
   <div id="chatBot" class="container" style="display: none;">
-    <h1 class="header">Альфа чат-бот</h1>
+    <h1 class="header">Что случилось?</h1>
     <button id="returnBtn" class="return-btn">Вернуться к выбору</button>
     <div class="chat-window">
       <div class="chat-messages">
-        <!-- Сообщения чата появятся здесь -->
       </div>
       <div class="chat-input-area">
-        <input type="text" id="chatInput" placeholder="Напишите сообщение...">
-        <button id="sendBtn">Отправить</button>
+        <div class="message-input-wrapper">
+          <input type="text" id="chatInput" placeholder="Введите сообщение">
+          <button id="sendBtn"></button>
+        </div>
       </div>
     </div>
   </div>

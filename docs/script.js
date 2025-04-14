@@ -181,17 +181,18 @@ function handleReturn() {
   async function sendMessage() {
     const messageText = UI.chatInput.value.trim();
     if (!messageText) return;
-
-    // Добавление сообщения пользователя
+  
+    // Добавляем сообщение пользователя
     addMessage(messageText, 'user');
     UI.chatInput.value = '';
-    
-    // Индикатор набора текста
+  
+    // Создаём и отображаем индикатор "бот печатает"
     const typingIndicator = createTypingIndicator();
     UI.chatMessages.appendChild(typingIndicator);
     scrollToBottom();
-
+  
     try {
+      // Запрашиваем ответ у сервера
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -202,23 +203,30 @@ function handleReturn() {
           history: conversationHistory
         })
       });
-      
+  
+      // Получаем результат
       const data = await response.json();
+  
+      // Ждём искусственную задержку (время "набора")
+      await new Promise(resolve =>
+        setTimeout(resolve, calculateDelay(data.reply))
+      );
+  
+      // Убираем индикатор typingIndicator после задержки
       typingIndicator.remove();
-      
-      // Задержка для реалистичности
-      await new Promise(resolve => 
-        setTimeout(resolve, calculateDelay(data.reply)));
-      
+  
+      // Добавляем окончательный ответ бота
       addMessage(data.reply, 'bot');
       scrollToBottom();
-      
+  
     } catch (error) {
+      // В случае ошибки индикатор тоже убираем, чтобы не висел бесконечно
       typingIndicator.remove();
       addMessage(`Ошибка: ${error.message}`, 'error');
       scrollToBottom();
     }
   }
+  
 
   function addMessage(text, type) {
     const messageElement = document.createElement('div');

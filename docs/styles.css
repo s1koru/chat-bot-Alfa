@@ -12,7 +12,7 @@
   font-style: normal;
 }
 
-/* Общие стили остаются без изменений */
+/* Общие стили */
 body {
   font-family: 'Styrene A Web', Arial, sans-serif;
   background: #000;
@@ -23,9 +23,6 @@ body {
 }
 
 /* Стили для экранов выбора (контейнеры, обёртки) */
-/* Для экранов выбора (возраста и дохода) используем фиксированное позиционирование с заданным фоном */
-/* Стили для экранов выбора (контейнеры, обёртки) */
-/* Контейнер выбора, фиксированные размеры для десктопа */
 .selection-wrapper {
   position: fixed;
   top: 200px;
@@ -39,21 +36,19 @@ body {
 
 /* Стили для надписи о некоммерческом использовании */
 .non-commercial {
-  position: fixed;      /* Фиксированное позиционирование позволяет зафиксировать надпись внизу окна */
-  bottom: 0;            /* Расположение в самом низу */
+  position: fixed;
+  bottom: 0;
   left: 0;
-  width: 100%;          /* Занимает всю ширину страницы */
-  font-size: 6px;       /* Очень маленький шрифт */
-  text-align: center;   /* Выравнивание по центру */
-  color: #fff;          /* Цвет текста (белый, как и остальной текст) */
-  padding: 5px 0;       /* Небольшие отступы сверху и снизу */
-  background: rgba(0, 0, 0, 0.5);  /* Прозрачный фон для улучшения читаемости */
-  z-index: 9999;        /* Чтобы надпись была поверх прочего контента */
+  width: 100%;
+  font-size: 6px;
+  text-align: center;
+  color: #fff;
+  padding: 5px 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
 }
 
-
-
-/* Заголовки и подзаголовки внутри приложения */
+/* Заголовки и подзаголовки */
 .header {
   color: #EF3124;
   margin-bottom: 10px;
@@ -64,29 +59,30 @@ body {
   margin: 20px 0 10px;
 }
 
-/* Стили для кнопок общего назначения */
+/* Для Chrome, Safari, Opera */
+.chat-messages::-webkit-scrollbar {
+  width: 0;                       /* ширина полосы прокрутки */
+  background: transparent;        /* фон, чтобы не было видно полосы */
+}
+/* Кнопки */
 .option-btn {
   padding: 15px 25px;
   background-color: #000;
   color: #fff;
   border: 2px solid #EF3124;
-  border-radius: 16px;   /* Обновлено до 16px */
+  border-radius: 16px;
   cursor: pointer;
   margin: 5px;
   transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
-.option-btn:hover {
-  /* Эффекты при наведении отключены */
-}
-
-/* Выбранное состояние кнопок */
+.option-btn:hover { }
 .option-btn.selected {
   background-color: #EF3124;
   color: #fff;
   border: 2px solid #EF3124;
 }
 
-/* Дополнительное групповое выравнивание кнопок */
+/* Групповое выравнивание кнопок */
 .options-group {
   display: flex;
   flex-wrap: wrap;
@@ -98,7 +94,7 @@ body {
   width: 45%;
 }
 
-/* 2. Ячейки в контейнере возраста */
+/* Ячейки выбора возраста и дохода */
 #ageSelection .option-btn {
   width: 126px;
   height: 48px;
@@ -114,8 +110,7 @@ body {
   height: 48px;
 }
 
-
-/* Кнопка "Далее" и "Перейти к диалогу" */
+/* Кнопки "Далее" и "Перейти к диалогу" */
 .continue-btn {
   display: block;
   width: 180px;
@@ -124,10 +119,10 @@ body {
   background-color: #EF3124;
   color: #F9E5E5;
   border: 1px solid #F9E5E5;
-  border-radius: 16px;   /* Обновлено до 16px */
+  border-radius: 16px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  font-size: 14px
+  font-size: 14px;
 }
 .continue-btn:hover {
   background-color: #EF3124;
@@ -141,39 +136,45 @@ body {
 /* Кнопка возврата */
 .return-btn {
   padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
-  border: 2px solid #EF3124;
-  border-radius: 16px;   /* Обновлено до 16px */
+  background-color: #EF3124;
+  color: #F9E5E5;
+  border: 1px solid #F9E5E5 ;
+  border-radius: 16px;
   margin-bottom: 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
-.return-btn:hover {
-  /* Эффект при наведении отключен */
-}
+.return-btn:hover { }
 
-/* Оформление окна чата внутри экрана чата */
+/* Окно чата */
 .chat-window {
-  border: 2px solid #EF3124;
-  border-radius: 10px;
-  padding: 20px;
-  background: #000;
+  width: 540px;
+  height: 288px;
+  background-color: rgba(249,229,229,0.15);
+  border: 3px solid #EF3124;
+  border-radius: 16px;
+  padding: 25px 20px 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   animation: fadeIn 1s ease-out;
 }
 
-/* Область сообщений чата */
+/* Область сообщений */
 .chat-messages {
-  height: 300px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  padding: 10px;
+  flex-grow: 1;
   overflow-y: auto;
-  text-align: left;
-  background: #000;
+  margin-bottom: 10px;
+  background: transparent;
+  border: none;
   color: #fff;
 }
 
+#chatBot .header {
+  color: #F9E5E5;
+}
 /* Область ввода сообщений */
 .chat-input-area {
   display: flex;
@@ -184,26 +185,23 @@ body {
   width: calc(100% - 120px);
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;  /* можно оставить, если это не кликабельный элемент */
-  background-color: #333;
-  color: #fff;
+  border-radius: 5px;
+  background-color: #F9E5E5 !important;
+  color: #000000;
 }
+/* Кнопка отправки заменяется на изображение */
 #sendBtn {
-  padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
-  border: 2px solid #EF3124;
-  border-radius: 16px;   /* Обновлено до 16px */
-  margin-left: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-#sendBtn:hover {
-  background-color: #EF3124;
-  color: #fff;
+  background: transparent;
+  border: none;
+  width: 25px;  /* Ширина кнопки – можно настроить под размеры изображения */
+  height: 25px; /* Высота кнопки */
+  background: url('img/Безымянный.png') no-repeat center center;
+  background-size: contain;
+  margin-left: 10px; /* Отступ между полем ввода и кнопкой, на ваше усмотрение */
 }
 
-/* Анимации появления */
+
+/* Анимации */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -215,52 +213,82 @@ body {
   }
 }
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
-/* Анимация плавного исчезновения */
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
-/* Стили сообщений чата */
+/* Общий стиль для сообщения с вертикальным расположением элементов */
 .chat-message {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   margin-bottom: 10px;
+  width: 100%;
+  align-items: flex-start;
+
 }
-.user-message {
-  justify-content: flex-end;
-}
-.bot-message {
-  justify-content: flex-start;
+.chat-message.user-message .message-content {
+  margin-left: auto;
 }
 
-/* Стили аватарок и сообщений */
+/* Сообщения пользователя выравниваем по правому краю */
+.chat-message.user-message {
+  align-self: flex-end;
+  text-align: right;
+}
+
+/* Сообщения бота остаются слева */
+.chat-message.bot-message {
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* Стили для формы ввода сообщений с кнопкой внутри */
+.message-input-wrapper {
+  position: relative;
+  background-color: #F9E5E5; /* Фон формы */
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+}
+.message-input-wrapper input {
+  flex: 1;
+  border: none;
+  background: #F9E5E5; /* Цвет поля ввода */
+  outline: none;
+  font-size: 14px;
+  color: #000; /* Цвет вводимого текста – чёрный */
+}
+
+/* Стили для плейсхолдера – чёрный с прозрачностью 36% */
+.message-input-wrapper input::placeholder {
+  color: rgba(0, 0, 0, 0.36);
+}
+
+
+/* Аватарка: задаём порядок, уменьшаем размер и убираем правый отступ */
 .avatar {
-  width: 40px;
-  height: 40px;
+  order: 2;
+  width: 24px;       /* Новый, уменьшенный размер */
+  height: 24px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin: 4px 0 0 0;  /* Отступ сверху для разделения от текста */
 }
 .message-content {
-  max-width: 70%;
-  background: #000;
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  position: relative;
-  border: 1px solid #EF3124;
+  background: #F9E5E5;
+  color: #000000;
+  padding: 10px 15px;
+  border-radius: 15px;
+  display: inline-block;
+  width: fit-content;
+  word-wrap: break-word;
+  border: none;
+  font-size: 12px;
+  order: 1;
 }
 .sender-name {
   font-weight: bold;
@@ -272,7 +300,7 @@ body {
   color: #ccc;
 }
 
-/* Логотип в левом верхнем углу */
+/* Логотип */
 .top-left-logo {
   position: absolute;
   top: 8px;
@@ -299,7 +327,6 @@ body {
 }
 
 /* Заголовочный блок чат-бота */
-/* Стили для десктопной версии (оставляем без изменений) */
 .chatbot-header {
   position: fixed;
   top: 82px;
@@ -323,59 +350,48 @@ body {
   margin-top: 5px;
 }
 
-  /* Контейнер выбора возраста – адаптация по данным из .v1880_318 */
-  .age-container {
-    width: 540px;
-    height: 288px;
-    background-color: rgba(249,229,229,0.15);
-    border: 3px solid #EF3124;
-    border-radius: 16px;
-    padding: 25px 20px 20px;
-    box-sizing: border-box;
-    opacity: 1;
-  }
-
-  .age-container-heading {
-    margin-bottom: 40px; /* Увеличенное расстояние между надписью и ячейками */
-  }
-
-
-/* Контейнер, в котором расположены ячейки – аналог v1880_322 */
-.age-options {
-  position: relative;
-  width: 280px;   /* Ширина контейнера с ячейками по исходнику */
-  height: 172px;  /* Высота контейнера с ячейками */
-  margin: 0 auto; /* Если нужен центрированный блок внутри основного контейнера */
-  row-gap: 30px
+/* Контейнер выбора возраста */
+.age-container {
+  width: 540px;
+  height: 288px;
+  background-color: rgba(249,229,229,0.15);
+  border: 3px solid #EF3124;
+  border-radius: 16px;
+  padding: 25px 20px 20px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+.age-container-heading {
+  margin-bottom: 40px;
 }
 
+/* Контейнер ячеек выбора возраста */
+.age-options {
+  position: relative;
+  width: 280px;
+  height: 172px;
+  margin: 0 auto;
+  row-gap: 30px;
+}
 .age-options:not(.income-grid) {
   display: grid;
-  grid-template-columns: repeat(2, 126px);  /* Два столбца по ширине ячейки */
-  grid-template-rows: repeat(3, 48px);       /* Три строки по высоте ячейки */
-  column-gap: 28px;                         /* Расстояние между столбцами */
-  row-gap: 22px;                            /* Увеличено расстояние между строками */
+  grid-template-columns: repeat(2, 126px);
+  grid-template-rows: repeat(3, 48px);
+  column-gap: 28px;
+  row-gap: 22px;
   justify-content: center;
 }
 
-/* Стили для отдельных ячеек – размеры 126x48, как в файле 1.css */
+/* Стили ячеек выбора возраста */
 .age-cell {
   position: absolute;
   width: 126px;
   height: 48px;
-  background: transparent; /* При необходимости можно задать фон или background-image */
-  border: 3px solid #F9E5E5; /* Если требуется обводка, аналогичная тем, что в классах с бордером */
+  background: transparent;
+  border: 3px solid #F9E5E5;
   border-radius: 16px;
   overflow: hidden;
 }
-
-/* Расположение ячеек внутри контейнера по файлу 1.css:
-   - 1-я ячейка: top: 0, left: 0;
-   - 2-я ячейка: top: 0, left: 154px (126 + 28 = 154);
-   - 3-я ячейка: top: 64px, left: 0;
-   - 4-я ячейка: top: 64px, left: 154px;
-   - 5-я ячейка: top: 124px, left: 0;
-   - 6-я ячейка: top: 124px, left: 154px. */
 .age-cell:nth-child(1) {
   top: 0;
   left: 0;
@@ -401,42 +417,22 @@ body {
   left: 154px;
 }
 
-/* Расположение и стили для текста внутри ячеек */
-/* Исходя из файла 1.css, для первой ячейки (класс .v1880_325) задано: top: 15px; left: 40px; font-size: 14px; ширина 46px.
-   Для остальных ячеек координаты несколько отличаются – их можно подкорректировать индивидуально, если нужно. */
+/* Текст внутри ячеек */
 .age-cell .age-label {
   position: absolute;
   top: 15px;
-  left: 40px; /* По умолчанию; можно для каждой ячейки задать индивидуально через nth-child */
+  left: 40px;
   font-family: "Styrene A Web", sans-serif;
   font-size: 14px;
   color: rgba(248, 228, 228, 1);
 }
+.age-cell:nth-child(2) .age-label { left: 38px; }
+.age-cell:nth-child(3) .age-label { left: 37px; }
+.age-cell:nth-child(4) .age-label { left: 37px; }
+.age-cell:nth-child(5) .age-label { left: 37px; }
+.age-cell:nth-child(6) .age-label { left: 49px; }
 
-/* Пример индивидуальной настройки для второй ячейки */
-.age-cell:nth-child(2) .age-label {
-  left: 38px;
-}
-
-/* Третьей ячейке – например */
-.age-cell:nth-child(3) .age-label {
-  left: 37px;
-}
-
-/* Четвёртой ячейке */
-.age-cell:nth-child(4) .age-label {
-  left: 37px;
-}
-
-/* Пятой ячейке */
-.age-cell:nth-child(5) .age-label {
-  left: 37px;
-}
-
-/* Шестой ячейке */
-.age-cell:nth-child(6) .age-label {
-  left: 49px;
-}
+/* Кнопки ячеек */
 .age-btn {
   width: 152px;
   height: 58px;
@@ -445,7 +441,7 @@ body {
   border: 1px solid #F9E5E5;
   background-color: transparent;
   color: #F9E5E5;
-  border-radius: 16px;   /* Обновлено до 16px */
+  border-radius: 16px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -460,27 +456,25 @@ body {
   text-align: center;
 }
 
+/* Стили для контейнера выбора дохода */
 .income-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
-  justify-content: center;  /* Центрирование по горизонтали */
-  align-items: center;      /* Центрирование по вертикали */
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 }
-
-
 .income-grid .age-btn {
   width: 100%;
   height: 58px;
-  border-radius: 16px;   /* Обновлено до 16px */
+  border-radius: 16px;
 }
-/* Кнопки, занимающие две колонки */
 .income-grid .option-btn[data-income="Премиум клиент"],
 .income-grid .option-btn[data-income="Alfa only"] {
   grid-column: 1 / span 2;
 }
 
-/* Переопределение для экрана чата – расположение строго по центру */
+/* Переопределение для экрана чата (если используется #chatBot.container) */
 #chatBot.container {
   position: fixed;
   top: 50%;
@@ -494,57 +488,48 @@ body {
 
 /* Контейнер приветственного экрана */
 #welcomeScreen {
-  position: absolute;  /* располагаем относительно окна браузера */
-  top: 145px;          /* 145 пикселей от верхнего края */
-  left: 64px;          /* 64 пикселя от левого края */
-  /* Можно задать нужную ширину или отступы, если требуется */
+  position: absolute;
+  top: 145px;
+  left: 64px;
 }
-
-/* Заголовок приветственного экрана */
 #welcomeHeader {
   font-size: 60px;
-  color: #F9E5E5;      /* Цвет надписи */
-  text-align: left;    /* Выравнивание по левому краю */
-  margin: 0 0 20px 0;  /* Можно добавить нижний отступ для отделения от кнопки */
+  color: #F9E5E5;
+  text-align: left;
+  margin: 0 0 20px 0;
 }
 
+/* ========== Адаптивные стили ========== */
 
-/* Адаптивные стили для экранов меньше 600px */
+/* 1. Стили для экранов менее 600px (мобильная версия) */
 @media only screen and (max-width: 600px) {
-  /* Общие стили для обоих контейнеров (выбора возраста и уровня дохода) */
   .selection-wrapper,
-  /* Корректируем отступы и ширину контейнера */
-    /* Общая адаптация контейнера incomeWrapper */
-    #incomeWrapper {
-      padding: 15px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    /* Адаптация гибкого контейнера для кнопок */
-    #incomeWrapper .income-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    
-    /* Адаптивное поведение кнопок внутри incomeWrapper */
-    #incomeWrapper .age-btn {
-      flex: 1 1 calc(50% - 20px);
-      max-width: calc(50% - 20px);
-      box-sizing: border-box;
-      font-size: 14px;
-      padding: 10px;
-    }
-    
-    /* Центрирование кнопки "Далее" */
-    #incomeWrapper .continue-container {
-      text-align: center;
-      margin-top: 20px;
-    }
+  #incomeWrapper {
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
   
-  /* Если внутри контейнеров используется класс для содержимого, например, .age-container */
+  #incomeWrapper .income-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  #incomeWrapper .age-btn {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  #incomeWrapper .continue-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
   .age-container {
     width: 100%;
     height: auto;
@@ -552,9 +537,8 @@ body {
     box-sizing: border-box;
   }
   
-  /* Адаптивное изменение шрифтов заголовков */
   .chatbot-title {
-    font-size: 36px; /* размер заголовка для мобильных экранов */
+    font-size: 36px;
     margin: 5px 0;
     margin-top: 90px !important;
     margin-bottom: 0 !important;
@@ -566,7 +550,6 @@ body {
     margin-bottom: 0 !important;
   }
   
-  /* Кнопки – гибкие размеры для остальных элементов */
   .option-btn, .continue-btn, .return-btn, .age-btn {
     width: 50%;
     box-sizing: border-box;
@@ -574,22 +557,44 @@ body {
     font-size: 16px;
   }
   
-  /* Уменьшение размера логотипа, если требуется */
   .top-left-logo img {
     width: 60px;
     height: auto;
   }
   
-  /* Корректировка окна чата */
-  .chat-window {
-    padding: 10px;
-    border-width: 1px;
-  }
-  .chat-messages {
-    height: 200px;  /* уменьшаем высоту окна сообщений */
+  /* Контейнер чата (например, родительский блок #chatBot) */
+  #chatBot {
+    width: 100% !important;
+    padding: 0 10px !important;
+    box-sizing: border-box;
+    margin: 0 auto;
   }
   
-  /* Заголовок чат-бота */
+  /* Гибкое окно чата */
+  .chat-window {
+    width: 90vw !important;       /* Занимает 90% от ширины viewport */
+    max-width: 540px;             /* Не превышает 540px, если экран больше */
+    margin: 10px auto;
+    height: 288px;                /* Высота подстраивается автоматически */
+    padding: 15px;
+    box-sizing: border-box;
+    position: static;
+    transform: none;
+    overflow-x: hidden; 
+  }
+  
+  /* Область сообщений: перенос длинных слов и скрытие горизонтального скролла */
+  .chat-messages {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Сообщения: обеспечиваем перенос длинных слов */
+  .message-content {
+    word-break: break-word;
+    white-space: normal;
+  }
+  
   .chatbot-header {
     position: relative;
     top: 0;
@@ -598,114 +603,123 @@ body {
     width: 100%;
     margin: 10px 0;
     text-align: center;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
   
-  /* Кнопка "Далее" (или "Перейти к диалогу") – фиксированная ширина, прежняя высота,
-     располагается строго по центру под контейнером */
   .continue-btn {
-    display: block;
-    width: 140px;          /* фиксированная длина */
-    height: 60px;          /* прежняя высота */
+    width: 140px;
+    height: 60px;
     font-size: 16px;
     padding: 0 20px;
-    margin: 20px auto 0;   /* отступ сверху 20px, центрирование по горизонтали */
+    margin: 20px auto 0;
     box-sizing: border-box;
   }
   
-  /* Адаптивное поведение для ячеек выбора дохода */
   #incomeSelection .option-btn {
-    width: calc(50% - 10px); /* ячейки занимают примерно половину ширины контейнера с отступом */
+    width: calc(50% - 10px);
     margin: 5px;
   }
   
-  /* Стиль для приветственной фразы "Привет, меня зовут Надежда. Сегодня я отвечу на все твои вопросы!" */
   #welcomeHeader {
-    font-size: 25px; /* уменьшенный размер шрифта */
-    margin-top: 5px; /* уменьшенное расстояние сверху */
-
+    font-size: 25px;
+    margin-top: 5px;
   }
-
+  
   .bg-photo {
     transform: scale(1.5);
-
   }
+  
   #welcomeScreen {
     position: fixed;
     top: 50%;
     left: 10%;
     transform: translate(0, -50%);
   }
+  
   #incomeWrapper .option-btn[data-income="Премиум клиент"] {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    }
+  }
   
   .age-container-heading {
     margin-bottom: 20px;
-    }
+  }
 }
 
-
-
-
-
-
-
+/* 2. Стили для экранов от 600px до 1163px */
 @media only screen and (min-width: 600px) and (max-width: 1163px) {
-  /* Теперь содержимое будет выравниваться по верхнему краю, а не по центру */
   body {
     margin: 0;
-    padding: 10px 0 0 0; /* 20px отступ сверху можно изменить по вкусу */
+    padding: 10px 0 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;  /* вместо center — начинаем с верха */
-    align-items: center;          /* горизонтальное центрирование сохраняется */
+    justify-content: flex-start;
+    align-items: center;
     min-height: 100vh;
     background: #000;
     margin-bottom: 60px;
   }
   
-  /* Заголовок "Чат‑бот который решит все твои вопросы" */
+  /* Переопределяем стиль контейнера чата */
+  #chatBot {
+    position: relative; /* Отменяем фиксированное позиционирование */
+    width: 572px;
+    margin: 40px auto; /* Добавляем отступ сверху и снизу под header и кнопку */
+    padding: 20px;
+  }
+  
+  /* Меняем стиль окна сообщений, чтобы оно располагалось внутри контейнера по потоку */
+  #chatBot .chat-window {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    margin: 40px 0; /* Отступ, чтобы не "сливалось" с header и кнопкой */
+  }
+
+  
+  /* Кнопку «Вернуться к выбору» позиционируем ниже окна сообщений */
+  #chatBot #returnBtn {
+    position: absolute;
+    bottom: -60px;  /* Отодвигаем кнопку ниже контейнера */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
   .chatbot-header {
     display: block;
     width: 100%;
     max-width: 572px;
-    margin: 0 auto;      /* центрирование по горизонтали */
+    margin: 0 auto;
     text-align: center;
     padding: 10px 0;
     box-sizing: border-box;
     font-size: 24px;
     line-height: 1.3;
     color: #F9E5E5;
-    /* Можно добавить margin-top, если требуется дополнительное смещение вниз относительно body */
     margin-top: 0;
   }
   
-  /* Контейнер с кнопками выбора */
   .selection-wrapper {
     display: block;
     width: 90%;
     max-width: 572px;
-    margin: 55px auto 0;  /* зазор 30px сверху между заголовком и контейнером */
+    margin: 55px auto 0;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
   }
   
-  /* Размеры ячеек для выбора возраста */
   #ageSelection .option-btn {
     width: 126px;
     height: 48px;
     margin: 5px;
   }
   
-  /* Размеры ячеек для выбора дохода (короткие варианты) */
   #incomeSelection .option-btn[data-income="До 100к"],
   #incomeSelection .option-btn[data-income="Свыше 100к"] {
     width: 180px;
@@ -713,7 +727,6 @@ body {
     margin: 5px;
   }
   
-  /* Для длинных надписей выбора дохода */
   #incomeSelection .option-btn[data-income="Премиум клиент"],
   #incomeSelection .option-btn[data-income="Alfa only"] {
     width: 376px;
@@ -721,7 +734,6 @@ body {
     margin: 5px 0;
   }
   
-  /* Стили для кнопок перехода ("Далее", "Вернуться") */
   .continue-btn,
   .return-btn {
     width: auto;
@@ -731,10 +743,10 @@ body {
     padding: 0 20px;
     box-sizing: border-box;
   }
+  
+  /* Позиционируем надпись о некоммерческом использовании сверху экрана */
   .non-commercial {
-    top: 0;         /* Переопределяем позицию: располагаем вверху */
-    bottom: auto;   /* Отменяем нижнее позиционирование */
+    top: 0;
+    bottom: auto;
   }
 }
-
-

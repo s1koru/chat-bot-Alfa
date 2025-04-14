@@ -155,7 +155,7 @@ def get_access_token():
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
         'RqUID': rq_uid,
-        'Authorization': 'Basic MTEyNDJhNGItMTUwOC00OGFiLTk3OTEtZmQ5ZTZlMzE3YzRkOmU5Yzc5MGYzLWI1OGItNDE5MC05YzI0LTE0ODhmZmRmYzk1Ng=='
+        'Authorization': 'Basic MzY2ZTliNjYtMjc4My00ZWM3LTg0MTItNjcwMTA5YWZhZTkyOmRlZDZiZGJhLTVlZmMtNDFjYy04Yzc2LWJhODVmNjU1MjU3NA=='
     }
     try:
         response = requests.post(oauth_url, headers=headers, data=payload, timeout=10, verify=False)
