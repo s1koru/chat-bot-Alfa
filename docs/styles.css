@@ -12,19 +12,20 @@
   font-style: normal;
 }
 
-/* Общие стили для страницы */
+/* Общие стили остаются без изменений */
 body {
-  font-family: Arial, sans-serif;
-  background: #000;          /* Чёрный фон для всей страницы */
-  color: #fff;               /* Белый цвет текста */
+  font-family: 'Styrene A Web', Arial, sans-serif;
+  background: #000;
+  color: #fff;
   margin: 0;
   padding: 0;
-  font-family: 'Styrene A Web', Arial, sans-serif;
+  margin-bottom: 60px;
 }
 
 /* Стили для экранов выбора (контейнеры, обёртки) */
 /* Для экранов выбора (возраста и дохода) используем фиксированное позиционирование с заданным фоном */
 /* Стили для экранов выбора (контейнеры, обёртки) */
+/* Контейнер выбора, фиксированные размеры для десктопа */
 .selection-wrapper {
   position: fixed;
   top: 200px;
@@ -284,6 +285,7 @@ body {
 }
 
 /* Заголовочный блок чат-бота */
+/* Стили для десктопной версии (оставляем без изменений) */
 .chatbot-header {
   position: fixed;
   top: 82px;
@@ -320,7 +322,7 @@ body {
   }
 
   .age-container-heading {
-    margin-bottom: 10px; /* Увеличенное расстояние между надписью и ячейками */
+    margin-bottom: 40px; /* Увеличенное расстояние между надписью и ячейками */
   }
 
 
@@ -491,3 +493,228 @@ body {
   text-align: left;    /* Выравнивание по левому краю */
   margin: 0 0 20px 0;  /* Можно добавить нижний отступ для отделения от кнопки */
 }
+
+.site-notice {
+  position: fixed;       /* Закрепляем footer внизу окна */
+            /* Прикрепляем к нижней границе */
+  left: 0;
+  width: 100%;           /* Растягиваем на всю ширину страницы */
+  background-color: #000; /* Фон подстраивается под общую тему */
+  color: #F9E5E5;
+  text-align: center;
+  padding: 10px 20px;
+  border-top: 0px solid #EF3124;
+  font-size: 12px;       /* Уменьшенный шрифт */
+  z-index: 10;           /* Поверх прочего контента */
+}
+
+
+/* Адаптивные стили для экранов меньше 600px */
+@media only screen and (max-width: 600px) {
+  /* Общие стили для обоих контейнеров (выбора возраста и уровня дохода) */
+  .selection-wrapper,
+  /* Корректируем отступы и ширину контейнера */
+    /* Общая адаптация контейнера incomeWrapper */
+    #incomeWrapper {
+      padding: 15px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    /* Адаптация гибкого контейнера для кнопок */
+    #incomeWrapper .income-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    
+    /* Адаптивное поведение кнопок внутри incomeWrapper */
+    #incomeWrapper .age-btn {
+      flex: 1 1 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+      box-sizing: border-box;
+      font-size: 14px;
+      padding: 10px;
+    }
+    
+    /* Центрирование кнопки "Далее" */
+    #incomeWrapper .continue-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  
+  /* Если внутри контейнеров используется класс для содержимого, например, .age-container */
+  .age-container {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Адаптивное изменение шрифтов заголовков */
+  .chatbot-title {
+    font-size: 36px; /* размер заголовка для мобильных экранов */
+    margin: 5px 0;
+    margin-top: 90px !important;
+    margin-bottom: 0 !important;
+  }
+  .chatbot-subtitle {
+    font-size: 20px;
+    margin: 5px 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Кнопки – гибкие размеры для остальных элементов */
+  .option-btn, .continue-btn, .return-btn, .age-btn {
+    width: 50%;
+    box-sizing: border-box;
+    margin: 8px 0;
+    font-size: 16px;
+  }
+  
+  /* Уменьшение размера логотипа, если требуется */
+  .top-left-logo img {
+    width: 60px;
+    height: auto;
+  }
+  
+  /* Корректировка окна чата */
+  .chat-window {
+    padding: 10px;
+    border-width: 1px;
+  }
+  .chat-messages {
+    height: 200px;  /* уменьшаем высоту окна сообщений */
+  }
+  
+  /* Заголовок чат-бота */
+  .chatbot-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+  
+  /* Кнопка "Далее" (или "Перейти к диалогу") – фиксированная ширина, прежняя высота,
+     располагается строго по центру под контейнером */
+  .continue-btn {
+    display: block;
+    width: 140px;          /* фиксированная длина */
+    height: 60px;          /* прежняя высота */
+    font-size: 16px;
+    padding: 0 20px;
+    margin: 20px auto 0;   /* отступ сверху 20px, центрирование по горизонтали */
+    box-sizing: border-box;
+  }
+  
+  /* Адаптивное поведение для ячеек выбора дохода */
+  #incomeSelection .option-btn {
+    width: calc(50% - 10px); /* ячейки занимают примерно половину ширины контейнера с отступом */
+    margin: 5px;
+  }
+  
+  /* Стиль для приветственной фразы "Привет, меня зовут Надежда. Сегодня я отвечу на все твои вопросы!" */
+  #welcomeHeader {
+    font-size: 42px; /* уменьшенный размер шрифта */
+    margin-top: 5px; /* уменьшенное расстояние сверху */
+  }
+
+  .bg-photo {
+    transform: scale(1.5);
+
+  }
+
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) and (max-width: 1163px) {
+  /* Теперь содержимое будет выравниваться по верхнему краю, а не по центру */
+  body {
+    margin: 0;
+    padding: 10px 0 0 0; /* 20px отступ сверху можно изменить по вкусу */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  /* вместо center — начинаем с верха */
+    align-items: center;          /* горизонтальное центрирование сохраняется */
+    min-height: 100vh;
+    background: #000;
+    margin-bottom: 60px;
+  }
+  
+  /* Заголовок "Чат‑бот который решит все твои вопросы" */
+  .chatbot-header {
+    display: block;
+    width: 100%;
+    max-width: 572px;
+    margin: 0 auto;      /* центрирование по горизонтали */
+    text-align: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #F9E5E5;
+    /* Можно добавить margin-top, если требуется дополнительное смещение вниз относительно body */
+    margin-top: 0;
+  }
+  
+  /* Контейнер с кнопками выбора */
+  .selection-wrapper {
+    display: block;
+    width: 90%;
+    max-width: 572px;
+    margin: 55px auto 0;  /* зазор 30px сверху между заголовком и контейнером */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  /* Размеры ячеек для выбора возраста */
+  #ageSelection .option-btn {
+    width: 126px;
+    height: 48px;
+    margin: 5px;
+  }
+  
+  /* Размеры ячеек для выбора дохода (короткие варианты) */
+  #incomeSelection .option-btn[data-income="До 100к"],
+  #incomeSelection .option-btn[data-income="Свыше 100к"] {
+    width: 180px;
+    height: 48px;
+    margin: 5px;
+  }
+  
+  /* Для длинных надписей выбора дохода */
+  #incomeSelection .option-btn[data-income="Премиум клиент"],
+  #incomeSelection .option-btn[data-income="Alfa only"] {
+    width: 376px;
+    height: 48px;
+    margin: 5px 0;
+  }
+  
+  /* Стили для кнопок перехода ("Далее", "Вернуться") */
+  .continue-btn,
+  .return-btn {
+    width: auto;
+    min-width: 180px;
+    height: 60px;
+    margin: 10px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
+

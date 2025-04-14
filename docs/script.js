@@ -279,7 +279,7 @@ function handleReturn() {
   const avatarMapping = {
     "14-17": "avatars/vika.png",
     "18-22": "avatars/anya.png",
-    "23-28": "avatars/oleg.png",
+    "23-28": "avatars/indira.png",
     "29-36": "avatars/nadezhda.png",
     "37+": "avatars/roman.png"
   };
